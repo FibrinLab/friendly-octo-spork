@@ -8,4 +8,6 @@ let whiteListAddresses = address
 const leafNodes = whiteListAddresses.map(addr => keccak256(addr));
 const merkleTree = new MerkleTree(leafNodes, keccak256, { sortPairs: true })
 
+const rootHash = merkleTree.getRoot();
 console.log("Whitelist Merkel Tree", merkleTree.toString());
+console.log("Root hash", rootHash.toString());
